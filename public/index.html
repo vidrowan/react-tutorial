@@ -24,12 +24,6 @@
         *    - CommentForm
         */
 
-      //var tutroial8.js
-      var data = {
-        {id: 1, author: "Pete Hunt", text: "*This* is one comment"},
-        {id: 2, author: "Jordan Walke", text: "__This__ is another comment"}
-      };
-
       // tutorial5.js
       var CommentList = React.createClass({
         render: function() {
@@ -52,19 +46,6 @@
         }
       });
 
-      // tutorial-raw.js
-      var CommentBox = React.createClass({displayName: 'CommentBox',
-        render: function() {
-          return (
-            <div className="commentBox">
-              <h1>Comments</h1>
-              <CommentList />
-              <CommentForm />
-            </div>
-          );
-        }
-      });
-
       // tutorial7.js
       var Comment = React.createClass({
         rawMarkup: function() {
@@ -84,8 +65,27 @@
         }
       });
 
+      //var tutroial8.js
+      var data = {
+        {id: 1, author: "Pete Hunt", text: "*This* is one comment"},
+        {id: 2, author: "Jordan Walke", text: "__This__ is another comment"}
+      };
+
+      // tutorial9.js
+      var CommentBox = React.createClass({displayName: 'CommentBox',
+        render: function() {
+          return (
+            <div className="commentBox">
+              <h1>Comments</h1>
+              <CommentList data={this.props.data} />
+              <CommentForm />
+            </div>
+          );
+        }
+      });
+
       ReactDOM.render(
-        React.createElement(CommentBox, null),
+        <CommentBox data={data} />,
         document.getElementById('content')
       );
     </script>
