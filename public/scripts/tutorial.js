@@ -95,10 +95,6 @@ var sort_by = function(field, reverse, primer){
 // tutorial10.js
 var CommentList = React.createClass({
   render: function() {
-    //var commentNodes = this.props.data.map(function(comment) {
-    //sort by author
-    //var commentNodes = this.props.data.sort(sort_by('author', true, function(a){return a.toUpperCase()})).map(function(comment) {
-    //sort by comment.id
     var commentNodes = this.props.data.sort(sort_by('id', true, parseInt)).map(function(comment) {
       //console.log(comment);
       return (
