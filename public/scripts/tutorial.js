@@ -11,7 +11,6 @@ var Comment = React.createClass({
     var rawMarkup = marked(this.props.children.toString(), {sanitize: true});
     return { __html: rawMarkup };
   },
-
   render: function() {
     return (
       <div className="comment">
@@ -79,16 +78,37 @@ var CommentBox = React.createClass({
   }
 });
 
+/**
+ * Sort an object
+ * ref: http://stackoverflow.com/questions/979256/sorting-an-array-of-javascript-objects
+ */
+var sort_by = function(field, reverse, primer){
+  var key = primer ?
+    function(x) {return primer(x[field])} :
+    function(x) {return x[field]};
+  reverse = !reverse ? 1 : -1;
+  return function (a, b) {
+    return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
+  }
+}
+
 // tutorial10.js
 var CommentList = React.createClass({
   render: function() {
-    var commentNodes = this.props.data.map(function(comment) {
+    //sort by author
+    //var commentNodes = this.props.data.sort(sort_by('author', true, function(a){return a.toUpperCase()})).map(function(comment) {
+    // no sort
+    //var commentNodes = this.props.data.map(function(comment) {
+    //sort by comment.id
+    var commentNodes = this.props.data.sort(sort_by('id', true, parseInt)).map(function(comment) {
+      //console.log(comment);
       return (
         <Comment author={comment.author} key={comment.id}>
           {comment.text}
         </Comment>
       );
     });
+
     return (
       <div className="commentList">
         {commentNodes}
