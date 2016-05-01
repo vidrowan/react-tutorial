@@ -133,17 +133,11 @@ var CommentForm = React.createClass({
             value={this.state.text}
             onChange={this.handleTextChange}
           />
-        <input type="submit" placeholder="Post" />
+        <input type="submit" value="Post" />
       </form>
    );
   }
 });
-
-// tutorial8.js
-var data = [
-  {id: 1, author: "Pete Hunt", text: "_This_ __is__ one comment"},
-  {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
-];
 
 ReactDOM.render(
   <CommentBox url="/api/comments" pollInterval={2000} />,
