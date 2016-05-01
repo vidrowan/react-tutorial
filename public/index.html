@@ -109,7 +109,7 @@
           e.preventDefault();
           var author = this.state.author.trim();
           var text = this.state.text.trim();
-          im (!text || !author) {
+          if (!text || !author) {
             return;
           }
           // TODO: send request to the server
@@ -117,7 +117,7 @@
         },
         render: function() {
           return (
-            <form className="commentForm">
+            <form className="commentForm" onSubmit={this.handleSubmit}>
                 <input
                   type="text"
                   placeholder="Your Name"
