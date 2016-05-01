@@ -14,12 +14,12 @@ var Comment = React.createClass({
 
   render: function() {
     return (
-      <div className="comment">
-        <h2 className="commentAuthor">
+      <fieldset className="comment">
+        <legend className="commentAuthor">
           {this.props.author}
-        </h2>
+        </legend>
         <span dangerouslySetInnerHTML={this.rawMarkup()} />
-      </div>
+      </fieldset>
     );
   }
 });
