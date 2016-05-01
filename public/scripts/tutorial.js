@@ -96,7 +96,6 @@ var sort_by = function(field, reverse, primer){
 var CommentList = React.createClass({
   render: function() {
     var commentNodes = this.props.data.sort(sort_by('id', true, parseInt)).map(function(comment) {
-      //console.log(comment);
       return (
         <Comment author={comment.author} key={comment.id}>
           {comment.text}
