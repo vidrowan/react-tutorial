@@ -97,9 +97,11 @@
       var CommentForm = React.createClass({
         render: function() {
           return (
-            <div className="commentForm">
-             Hello, world! I am a CommentForm.
-           </div>
+            <form className="commentForm">
+              <input type="text" placeholder="Your Name" />
+              <input type="text" placeholder="Say something..." />
+              <input type="submit" placeholder="Post" />
+            </form>
          );
         }
       });
@@ -111,7 +113,7 @@
       ];
 
       ReactDOM.render(
-        <CommentBox url="/api/comments" pollInterval={2000} />,
+        <CommentBox url="/api/comments" pollInterval={2000000} />,
         document.getElementById('content')
       );
     </script>
