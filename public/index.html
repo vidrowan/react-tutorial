@@ -94,7 +94,7 @@
         }
       });
 
-      // tutorial16.js
+      // tutorial17.js
       var CommentForm = React.createClass({
         getInitialState: function() {
           return {author: '', text: ''};
@@ -104,6 +104,16 @@
         },
         handleTextChange: function(e) {
           this.setState({text: e.target.value});
+        },
+        handleSubmit: function(e) {
+          e.preventDefault();
+          var author = this.state.author.trim();
+          var text = this.state.text.trim();
+          im (!text || !author) {
+            return;
+          }
+          // TODO: send request to the server
+          this.setState({author: '', text: ''});
         },
         render: function() {
           return (
