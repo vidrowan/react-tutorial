@@ -72,7 +72,7 @@
             type: 'POST',
             data: comment,
             success: function(data) {
-              this.setState({data: date});
+              this.setState({data: data});
             }.bind(this),
             error: function(xhr, status, err) {
               this.setState({data: comments});
@@ -152,7 +152,7 @@
                   value={this.state.text}
                   onChange={this.handleTextChange}
                 />
-              <input type="submit" placeholder="Post" />
+              <input type="submit" value="Post" />
             </form>
          );
         }
